@@ -1,13 +1,19 @@
-read -p "Please enter your first value: " VAL1
-read -p "Please enter your second value: " VAL2
-
-read -p "Please state how many times you would like the program to run: " RUN
-
 OUTPUT=0
+read -p "Please enter a value: " INPUT1
+read -p "Please enter another value: " INPUT2
+read -p "Please specify how many times you would like the application to run: " RUN
+
+
+task2() {
 
 for (( i=1; i<$RUN; i++ ))
 do 
-	$OUTPUT= $VAL1(i) + $VAL2
+	OUTPUT=$(( $INPUT1 * $i + $INPUT2 ))
+	
+	echo $OUTPUT
+
 done
 
-echo $OUTPUT
+}
+
+task2
