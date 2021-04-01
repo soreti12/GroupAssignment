@@ -17,7 +17,7 @@ Quit application [Qq]"
 
 read -n 1 -r -s -p $'Choose a Task: ' Taskselected
 
-# Switch statement will determine output based on user input
+# Switch statement will determine output based on user input $Taskselected
 case $Taskselected in
 # This prompt will load task1 by typing Mm key
 [Mm])
