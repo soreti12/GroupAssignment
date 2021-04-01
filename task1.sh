@@ -1,6 +1,4 @@
-
 echo "Task 1: list of even multiples"
-echo
 read -p "Input any number to find the even multiples: "  Input
 until [[ "$Input" =~ ^[+-]?[0-9]+$ ]]; do
 if [[ "$Input" == [Qq] ]]; then

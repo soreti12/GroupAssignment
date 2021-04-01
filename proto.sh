@@ -1,69 +1,43 @@
-
-#Group project 16 applied programming
-
-#This interface allows the user to perform mathmatical operations
-
-#Task 1:   Find the even multiples of any number – the user should specify the multiples of which
-#          number they want to print and how many of them.
-
-#Task 2:   Find the terms of any linear sequence given by the rule Un = an + b, where a and b are
-#          integers specified by the user and n is a positive integer, and print them in increasing order
-#          The user also will specify how many terms the program should print. The user should be
-#          allowed to choose another sequence and for the number of terms chosen the program should
-#          calculate and print their sum.
-
-
-#Task 3:   Find the numbers that can be expressed as the product of two nonnegative integers in
-#          succession and print  them in increasing order.
-#          The user should specify a maximum value and the program should print all said numbers smaller than or equal to
-#          that value. The program should keep a count of how many numbers were printed and should
-#          output that count, as well as the numbers.
-#          Your application should be user friendly. 
-
-
-
-#This is the menu where you can choose which task you would like to execute
-
 while true; do 
 
-echo "Welcome To Group 16 Project"
-echo
-echo 'This App is programmed by: '
-echo 
-echo 'Mustafa All-Said'
-echo 'Noor Ranya Said'
-echo
-echo "Here you will find three tasks"
-echo
-echo "Task 1 List of even multiples of any number [Mm]"
-echo "Task 2 List of terms of any linear sequence[Ss]"
-echo "Task 3 List of two non negative numbers in succession [Pp]"
-echo
-echo "Quit application [Qq]"
-echo
+echo "Welcome To Group 16 Project 
+
+This App is programmed by: 
+
+Mustafa All-Said
+
+Noor Ranya Said
+
+Here you will find three tasks
+
+Task 1 List of even multiples of any number [Mm]
+Task 2 List of terms of any linear sequence[Ss]
+Task 3 List of two non negative numbers in succession [Pp]
+Quit application [Qq]"
 
 read -n 1 -r -s -p $'Choose a Task: ' Taskselected
 
+# Switch statement will determine output based on user input
 case $Taskselected in
-#This task will load task1 by pressing M or m
+# This prompt will load task1 by typing Mm key
 [Mm])
 clear
 echo "Task 1: list of even multiples"
-echo
-#This promp will have the user enter any number that would find the even multiples
+# User will input random number, task will output all of its even multiples
 read -p "Input any number to find the even multiples: "  Input
 until [[ "$Input" =~ ^[+-]?[0-9]+$ ]]; do
+# The line below will be available throughout program so that user can quit at any time
 if [[ "$Input" == [Qq] ]]; then
 break
 fi
-#The user has to input an integer number if the user inputs 1.75 and so on , then an error code will ensue with Error please and so on
-echo
+# If user input is NOT a whole number, an Error message will appear and user will be prompted to input a valid number
 echo "Error Please Input Number Again or Quit Task 1"
 read Input
 done
 if [[ "$Input" == [Qq] ]]; then
 continue
 fi
+# This prompt will load task2 by typing Pp key 
 #This prompt will have the user input a number that will have the multiples be multiplied by what the user inputed from the first prompt
 read -p "How many even multiples do you want: " Numbers
 until [[ "$Numbers" =~ ^[0-9]+$ && "$Numbers" -gt 0 ]]; do
