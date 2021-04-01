@@ -37,8 +37,7 @@ done
 if [[ "$Input" == [Qq] ]]; then
 continue
 fi
-# This prompt will load task2 by typing Pp key 
-#This prompt will have the user input a number that will have the multiples be multiplied by what the user inputed from the first prompt
+# This prompt will determine how many multiples of $Taskselected will be printed
 read -p "How many even multiples do you want: " Numbers
 until [[ "$Numbers" =~ ^[0-9]+$ && "$Numbers" -gt 0 ]]; do
 if [[ "$Numbers" == [Qq] ]]; then
