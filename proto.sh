@@ -1,3 +1,4 @@
+# Initial menu includes greeting and brief explanation of program
 while true; do 
 
 echo "Welcome To Group 16 Project 
@@ -19,7 +20,7 @@ read -n 1 -r -s -p $'Choose a Task: ' Taskselected
 
 # Switch statement will determine output based on user input $Taskselected
 case $Taskselected in
-# This prompt will load task1 by typing Mm key
+# This prompt will initiate task1 by typing Mm key
 [Mm])
 clear
 echo "Task 1: list of even multiples"
@@ -38,12 +39,12 @@ if [[ "$Input" == [Qq] ]]; then
 continue
 fi
 # This prompt will determine how many multiples of $Taskselected will be printed
+# If input is less than 0 (i.e. -1), an Error code will ensue
 read -p "How many even multiples do you want: " Numbers
 until [[ "$Numbers" =~ ^[0-9]+$ && "$Numbers" -gt 0 ]]; do
 if [[ "$Numbers" == [Qq] ]]; then
 break
 fi
-#If the user inputs a number less then 0 i.e. -1 and so on then it will ensue the error code,"Error"
 echo
 echo "Error Please Enter an Interger or Quit Task 1"
 read Numbers
@@ -51,10 +52,10 @@ done
 if [[ "$Numbers" == [Qq] ]]; then
 continue
 fi
-#This echo is to verify the number and how many times it wants to multiply into input
+# This prompt will verify the number and how many times it wants to multiply into input
+# If $Counter is less than or equal to $Numbers, it will initiate a while loop
 echo
 echo "You asked to find $Numbers even multiples for the number $Input"
-#If Counter is less than or equal to Numbers it will intiate a while if loop
 Counter=1
 Output=0 
 while [ $Counter -le $Numbers ]; do
@@ -64,10 +65,10 @@ echo $Output
 ((Counter++))
 fi
 done
-#This command is where the program has done its task and asks the user if they want to go back to the main menu
+# This command will run when task1 is complete and will prompt user to go back to main menu
 read -n 1 -r -s -p $'Press Any Key To Continue '
 ;;
-#This will start up task 2 if the user press S or s.
+# This prompt will initiate task 2 by typing Ss key
 [Ss])
 while true; do
 clear
