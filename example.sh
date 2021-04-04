@@ -65,11 +65,13 @@ function selectTask() {
 	then
 		task1
 	elif [[ "$Taskselected" == [Ss]  ]]
-
 	then
 		task2
-	else [[ "$Taskselected" == [Pp]  ]]
+	elif [[ "$Taskselected" == [Pp]  ]]
+	then
 		task3
+	else
+		echo "please try again"
 	fi
 }
 
