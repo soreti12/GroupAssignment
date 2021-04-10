@@ -134,15 +134,25 @@ done
 
 
 [Pp])
-while true do
+clear
+echo "Task 3: XXXX"
 # GET INPUT FROM USER
-read -p "Please enter a number: " NUM
-
-echo "You entered $NUM"
+read -p "Please enter a number: " Input
+until [[ "$Input" =~ ^[+-]?[0-9]+$ ]]; do
+if [[ "$Input" == [Qq] ]]; then
+break
+fi
+echo "Error! Please enter a valid input"
+read $Input
+done
+if [[ "$Input" == [Qq] ]]; then
+continue
+fi
+echo "You entered $INPUT"
 
 OUTPUT=0
 
-for (( i=1; i<=$NUM; i++ ))
+for (( i=1; i<=$Input; i++ ))
 do
 	for (( j=1; j<=i; j++ ))
 	do
