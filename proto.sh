@@ -139,15 +139,9 @@ echo "Task 3: XXXX"
 # GET INPUT FROM USER
 read -p "Please enter a number: " Input
 until [[ "$Input" =~ ^[+-]?[0-9]+$ ]]; do
-if [[ "$Input" == [Qq] ]]; then
-break
-fi
 echo "Error! Please enter a valid input"
 read $Input
 done
-if [[ "$Input" == [Qq] ]]; then
-continue
-fi
 echo "You entered $INPUT"
 
 OUTPUT=0
