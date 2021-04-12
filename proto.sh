@@ -128,26 +128,32 @@ done
 # This command will run when task1 is complete and will prompt user to go back to main menu
 read -n 1 -r -s -p $'Press Any Key To Continue '
 ;;
-esac
-done
 
 
-
+# This prompt will initiate task3 by typing the Pp key
 [Pp])
 clear
-echo "Task 3: XXXX"
-# GET INPUT FROM USER
+echo "Task 3: Print the product of two nonnegative integers in succession"
+# Retrieve input from user
 read -p "Please enter a number: " Input
 until [[ "$Input" =~ ^[+-]?[0-9]+$ ]]; do
+if [[ "$Input" == [Qq] ]]; then
+break
+fi
 echo "Error! Please enter a valid input"
 read $Input
 done
+if [[ "$Input" == [Qq] ]]; then
+break
+fi
 echo "You entered $INPUT"
-
+# $OUTPUT count start at 0 and will increase by 1 each time condition is met
 OUTPUT=0
-
+# for loop will display value $i until $Input is reached
 for (( i=1; i<=$Input; i++ ))
 do
+	# Nested for loop will go through entire iteration before outer loop
+	# can run again
 	for (( j=1; j<=i; j++ ))
 	do
 		if [ `expr $i % $j` -eq 0 ]
@@ -160,7 +166,8 @@ do
 		fi
 	done
 done
-
+# Dislays total number of outputs
 echo "Total output: $OUTPUT"
 ;;
+esac
 done 
