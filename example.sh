@@ -3,20 +3,24 @@ function task1() {
 # Clear screen when function runs
 	clear
 	echo "Task1: List of even multiples"
-# Retrieve input from user, if it is not a whole number, Error message will appear and user will 
-# be prompted to input a valid number
+# Retrieve input from user, if it is not a whole number, Error message will appear and user will be prompted to input a valid number
 	read -p "Input any number to find the even multiples: " Input
 	until [[ "$Input" =~ ^[+-]?[0-9]+$ ]]; do
-	echo "Error! Please enter a valid input"
-	read Input			
+# The line below will be available throughout program so that user can quit at any time
+		if [[ "$Input" == [Qq] ]]; then
+		selectTask
+		fi
+# If user input is NOT a whole number, an Error message will appear and user will be prompted to input a valid number
+		echo "Error! Please enter a valid input"
+		read Input			
 	done
 # This prompt will determine how many multiples of $Taskselected will be printed
-# If the user inputs a number less than 0 (i.e. -1), an Error message will appear and the 
-# user will be prompted to input a valid number
+# If the user inputs a number less than 0 (i.e. -1), an Error message will appear and the user will be prompted to input a valid number
 	read -p "How many even multiples do you want: " Numbers
-
-	until [[ "$Numbers" =~ ^[0-9]+$ && "$Numbers" -gt 0 ]]
-	do
+	until [[ "$Numbers" =~ ^[0-9]+$ && "$Numbers" -gt 0 ]]; do
+		if [[ "$Numbers" == [Qq] ]]; then
+		selectTask
+		fi
 		echo "Error! Please enter a valid integer"
 		read Numbers
 	done
@@ -25,14 +29,14 @@ function task1() {
 	Output=0
 # While loop will continuously print output until $Number is reached
 	while [ $Counter -le $Numbers ]; do
-	Output=$(($Output + $Input))
-	if (($Output % 2 == 0)); then
-	echo $Output 
-	((Counter++))
-	fi
+		Output=$(($Output + $Input))
+		if (($Output % 2 == 0)); then
+		echo $Output 
+		((Counter++))
+		fi
 	done	
 # This prompt will enable user to return to the main menu
-	read -n 1 -r -s -p $'Press Any Key To Continue '
+	selectTask
 }
 
 #Task 2
@@ -41,10 +45,44 @@ function task2() {
 	clear
 	echo 'Task 2: List of terms of any linear sequence'
 	read -p "Enter the first number : " a
+	selectTask
 }
 
 function task3() {
-	echo hi
+	clear
+	echo "Task 3: Print the product of two nonnegative integers in succession"
+	# Retrieve input from user
+	read -p "Please enter a number: " Input
+	until [[ "$Input" =~ ^[+-]?[0-9]+$ ]]; do
+		if [[ "$Input" == [Qq] ]]; then
+		selectTask
+		fi
+		echo "Error! Please enter a valid input"
+		read $Input
+	done
+	echo "You entered $INPUT"
+	# $OUTPUT count start at 0 and will increase by 1 each time condition is met
+	OUTPUT=0
+	# for loop will display value $i until $Input is reached
+	for (( i=1; i<=$Input; i++ ))
+	do
+	# Nested for loop will go through entire iteration before outer loop
+	# can run again
+		for (( j=1; j<=i; j++ ))
+		do
+				if [ `expr $i % $j` -eq 0 ]
+				then
+						if [ `expr $i / $j` -eq `expr $j + 1` ]
+						then
+							echo $i
+							OUTPUT=`expr $OUTPUT + 1`
+						fi
+				fi
+		done
+done
+	# Dislays total number of outputs
+	echo "Total output: $OUTPUT"
+	selectTask
 }
 
 function selectTask() {
