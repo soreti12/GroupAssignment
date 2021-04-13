@@ -43,9 +43,21 @@ function task1() {
 function task2() {
 # Clear screen when function runs
 	clear
-	echo 'Task 2: List of terms of any linear sequence'
-	read -p "Enter the first number : " a
-	selectTask
+	read -p "Enter an integer for variables a & b: " a b
+	read -p "Enter the numbers of terms:" n
+	counter=1
+	sum=0
+	echo "The terms of the series are:"
+	while [ $counter -le $n ]; do
+
+	temp=expr $a * $counter + $b
+	echo $temp
+	sum=expr $sum + $temp
+	counter=expr $counter + 1
+
+	done
+	echo "The sum is $sum"
+		selectTask
 }
 
 function task3() {
@@ -58,9 +70,9 @@ function task3() {
 		selectTask
 		fi
 		echo "Error! Please enter a valid input"
-		read $Input
+		read Input			
 	done
-	echo "You entered $INPUT"
+	echo "You entered $Input"
 	# $OUTPUT count start at 0 and will increase by 1 each time condition is met
 	OUTPUT=0
 	# for loop will display value $i until $Input is reached
@@ -81,7 +93,7 @@ function task3() {
 		done
 done
 	# Dislays total number of outputs
-	echo "Total output: $OUTPUT"
+	echo "Total number of output: $OUTPUT"
 	selectTask
 }
 
