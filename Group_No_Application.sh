@@ -71,8 +71,7 @@ function task3() {
 		if [[ "$Input" == [Qq] ]]; then
 		selectTask
 		fi
-		echo "Error! Please enter a valid input"
-		read Input			
+		read -p "Please enter a number" Input
 	done
 	echo "You entered $Input"
 	# $OUTPUT count start at 0 and will increase by 1 each time condition is met
