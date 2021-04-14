@@ -58,6 +58,7 @@ function task2() {
 
 	done
 	echo "The sum is $sum"
+	read -p "Hit the [ENTER] key to return to the main menu"
 		selectTask
 }
 
