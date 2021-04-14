@@ -36,6 +36,7 @@ function task1() {
 		fi
 	done	
 # This prompt will enable user to return to the main menu
+	read -p "Hit the [ENTER] key to return to the main menu"
 	selectTask
 }
 
@@ -94,6 +95,7 @@ function task3() {
 done
 	# Dislays total number of outputs
 	echo "Total number of output: $OUTPUT"
+	read -p "Hit the [ENTER] key to return to the main menu"
 	selectTask
 }
 
@@ -107,6 +109,8 @@ function selectTask() {
 	Task 1: List even multiples of any number [Mm]
 	Task 2: List terms of any linear sequence [Ss]
 	Task 3: List nonnegative numbers in succession [Pp]
+	
+	To exit at any time during the program, hit [Qq] to return to the main menu
 	"
 	read -n 1 -r -s -p $'Choose a Task: ' Taskselected
 	echo
