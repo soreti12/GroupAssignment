@@ -65,7 +65,7 @@ function task2() {
 function task3() {
 	clear
 	echo "Task 3: Print the product of two nonnegative integers in succession"
-	# Retrieve input from user
+# Retrieve input from user
 	read -p "Please enter a number: " Input
 	until [[ "$Input" =~ ^[+-]?[0-9]+$ ]]; do
 		if [[ "$Input" == [Qq] ]]; then
@@ -74,15 +74,16 @@ function task3() {
 		read -p "Please enter a number" Input
 	done
 	echo "You entered $Input"
-	# $OUTPUT count start at 0 and will increase by 1 each time condition is met
+# $OUTPUT count start at 0 and will increase by 1 each time condition is met
 	OUTPUT=0
-	# for loop will display value $i until $Input is reached
+# for loop will continuously run until condition is met
 	for (( i=1; i<=$Input; i++ ))
 	do
-	# Nested for loop will go through entire iteration before outer loop
-	# can run again
+# for loop will continuously run until condition is met
 		for (( j=1; j<=i; j++ ))
 		do
+# Using two if statements to determine if value meets condition of task
+# If the condition is met, the current value will be printed and will OUTPUT++
 				if [ `expr $i % $j` -eq 0 ]
 				then
 						if [ `expr $i / $j` -eq `expr $j + 1` ]
@@ -93,7 +94,8 @@ function task3() {
 				fi
 		done
 done
-	# Dislays total number of outputs
+
+# Dislays total number of outputs
 	echo "Total number of output: $OUTPUT"
 	read -p "Hit the [ENTER] key to return to the main menu"
 	selectTask
@@ -102,6 +104,7 @@ done
 function selectTask() {
 	echo "
 	Authors: Mustafa All-Said, Noor Ranya Said
+
 	
 	This program will allow users to perform simple mathematical operations. 
 	Type in the appropriate key to perform the desired task
